@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class NameController {
 
     @GetMapping()
-    public String displayGreeting(Greeting greeting, @RequestParam(required = false) String timeOfDay) {
-        greeting.setTimeOfDay(timeOfDay);
-        return String.format("Good %s, %s!", greeting.getTimeOfDay(), greeting.getName());
+    public Greeting displayGreeting(@RequestParam String timeOfDay) {
+        return new Greeting("Zarrin", timeOfDay);
     }
+
+//    @GetMapping(value = "/summer")
+//    public String
 
 }
